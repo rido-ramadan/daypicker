@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LocaleView">
+        <attr name="locale" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="DayPicker" parent="LocaleView">
+        <attr name="locale"/>
+        <attr name="checked" format="boolean"/>
+        <attr name="day" format="enum">
+            <enum name="sunday" value="0"/>
+            <enum name="monday" value="1"/>
+            <enum name="tuesday" value="2"/>
+            <enum name="wednesday" value="3"/>
+            <enum name="thursday" value="4"/>
+            <enum name="friday" value="5"/>
+            <enum name="saturday" value="6"/>
+        </attr>
+        <attr name="iconSize" format="dimension"/>
+        <attr name="captionSize" format="dimension"/>
+        <attr name="radius" format="dimension"/>
+    </declare-styleable>
+    <declare-styleable name="WeeklyDayPicker" parent="LocaleView">
+        <attr name="locale"/>
+    </declare-styleable>
+</resources>
