@@ -16,7 +16,7 @@ import java.util.Locale
 /**
  * Created by Rido Ramadan : @EdgarDrake (email: rido.ramadan@gmail.com) on 19-Aug-20
  */
-class DayPicker @JvmOverloads constructor(
+open class DayPicker @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : LinearLayout(context, attrs), Checkable {
