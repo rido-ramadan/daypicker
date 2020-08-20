@@ -8,20 +8,22 @@
 
     <CheckedTextView
         android:id="@+id/dayPickerButton"
+        style="@style/CircleButton.Blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="0dp"
         android:textAlignment="gravity"
         tools:text="S"
-        tools:checked="false" />
+        tools:checked="true" />
 
     <CheckedTextView
         android:id="@+id/dayPickerCaption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="0dp"
+        android:textColor="@color/caption_color_blue"
         android:textAlignment="gravity"
         tools:text="Sen"
-        tools:checked="false" />
+        tools:checked="true" />
 
 </LinearLayout>

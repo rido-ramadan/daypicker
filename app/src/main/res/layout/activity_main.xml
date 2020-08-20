@@ -10,8 +10,10 @@
     <com.edgardrake.libs.views.daypicker.DayPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        tools:checked="true"
+        app:locale="id"
         app:day="monday"
-        app:locale="id"/>
+        app:dayFormat="shorthand"/>
 
     <TextView
         android:layout_width="wrap_content"
