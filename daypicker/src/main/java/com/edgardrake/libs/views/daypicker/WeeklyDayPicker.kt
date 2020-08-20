@@ -123,6 +123,38 @@ class WeeklyDayPicker @JvmOverloads constructor(
         }
 
     /**
+     * Add [day] to [selectedDays]
+     */
+    fun addSelectedDay(day: Day) {
+        if (day !in selectedDays) {
+            dayPickers[day.index].isChecked = true
+        }
+    }
+
+    /**
+     * Remove [day] from [selectedDays]
+     */
+    fun removeSelectedDay(day: Day) {
+        if (day in selectedDays) {
+            dayPickers[day.index].isChecked = false
+        }
+    }
+
+    /**
+     * @see [addSelectedDay]
+     */
+    operator fun plusAssign(day: Day) {
+        addSelectedDay(day)
+    }
+
+    /**
+     * @see [removeSelectedDay]
+     */
+    operator fun minusAssign(day: Day) {
+        removeSelectedDay(day)
+    }
+
+    /**
      * Change the mode within the View.
      * - [Mode.SHOW_ALL] (Default) will show all days, even the non selected days.
      * - [Mode.FILTERED] will only show [selectedDays] only

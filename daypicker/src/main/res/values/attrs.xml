@@ -3,6 +3,7 @@
     <declare-styleable name="LocaleView">
         <attr name="locale" format="string" />
     </declare-styleable>
+
     <declare-styleable name="BaseDayPicker" parent="LocaleView">
         <attr name="dayFormat" format="enum">
             <enum name="shorthand" value="0" />
@@ -10,7 +11,9 @@
         </attr>
         <attr name="iconBackground" format="reference"/>
         <attr name="captionColor" format="color"/>
+        <attr name="radius" format="dimension" />
     </declare-styleable>
+
     <declare-styleable name="DayPicker" parent="BaseDayPicker">
         <attr name="locale" />
         <attr name="checked" format="boolean" />
@@ -26,10 +29,11 @@
         <attr name="dayFormat" />
         <attr name="iconSize" format="dimension" />
         <attr name="captionSize" format="dimension" />
-        <attr name="radius" format="dimension" />
+        <attr name="radius" />
         <attr name="iconBackground"/>
         <attr name="captionColor"/>
     </declare-styleable>
+
     <declare-styleable name="WeeklyDayPicker" parent="BaseDayPicker">
         <attr name="locale" />
         <attr name="dayFormat" />
@@ -48,5 +52,6 @@
             <enum name="showAll" value="0"/>
             <enum name="filtered" value="1"/>
         </attr>
+        <attr name="radius" />
     </declare-styleable>
 </resources>

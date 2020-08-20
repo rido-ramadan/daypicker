@@ -1,9 +1,8 @@
 package com.edgardrake.libs.test.daypicker
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.edgardrake.libs.views.daypicker.WeeklyDayPicker
+import androidx.appcompat.app.AppCompatActivity
 import com.edgardrake.libs.views.daypicker.WeeklyDayPicker.Mode
 import com.edgardrake.libs.views.daypicker.data.Day
 import kotlinx.android.synthetic.main.activity_main.*
@@ -36,6 +35,10 @@ class MainActivity : AppCompatActivity() {
         modeButton.setOnClickListener {
             weeklyDayPicker.mode = if (weeklyDayPicker.mode == Mode.SHOW_ALL)
                 Mode.FILTERED else Mode.SHOW_ALL
+        }
+
+        addSundayButton.setOnClickListener {
+            weeklyDayPicker += Day.SUNDAY
         }
     }
 
