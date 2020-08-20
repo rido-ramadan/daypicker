@@ -7,21 +7,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.edgardrake.libs.views.daypicker.DayPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:checked="true"
-        app:locale="id"
-        app:day="monday"
-        app:dayFormat="shorthand"/>
-
     <com.edgardrake.libs.views.daypicker.WeeklyDayPicker
         android:id="@+id/weeklyDayPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:locale="id"
         app:dayFormat="shorthand"
-        tools:days="friday|monday"
+        tools:days="all"
         app:radius="32dp"/>
 
     <Button

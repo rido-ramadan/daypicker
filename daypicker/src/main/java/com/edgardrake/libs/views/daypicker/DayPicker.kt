@@ -71,9 +71,24 @@ open class DayPicker @JvmOverloads constructor(
         }
 
     /**
+     * Localized & formatted [Day.name]
+     */
+    val dayName: String? get() = day?.getName(locale, format)
+
+    /**
      * Return currently active day, otherwise null, since it is not selected.
      */
     val activeDay: Day? get() = day?.takeIf { isChecked }
+
+    /**
+     * Localized & formatted [Day.name]
+     */
+    val activeDayName: String? get() = activeDay?.getName(locale, format)
+
+    /**
+     * Localized full [Day.name]
+     */
+    val activeDayFullName: String? get() = activeDay?.getName(locale, Format.FULL)
 
     var onToggleListener: ((Boolean) -> Unit)? = null
 

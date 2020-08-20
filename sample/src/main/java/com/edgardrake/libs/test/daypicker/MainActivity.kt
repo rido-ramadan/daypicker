@@ -27,9 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         selectedDaysButton.setOnClickListener {
-            toast(weeklyDayPicker.selectedDays.joinToString(", ") {
-                it.getName(locale, Day.Format.FULL)
-            })
+            toast(weeklyDayPicker.selectedDaysFullName.joinToString(", ") { it })
         }
 
         modeButton.setOnClickListener {

@@ -132,6 +132,12 @@ class WeeklyDayPicker @JvmOverloads constructor(
             render(mode)
         }
 
+    val selectedDaysName: Collection<String>
+        get() = dayPickers.mapNotNull { it.activeDayName }
+
+    val selectedDaysFullName: Collection<String>
+        get() = dayPickers.mapNotNull { it.activeDayFullName }
+
     /**
      * Add [day] to [selectedDays]
      */
