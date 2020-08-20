@@ -40,6 +40,14 @@ class MainActivity : AppCompatActivity() {
         addSundayButton.setOnClickListener {
             weeklyDayPicker += Day.SUNDAY
         }
+
+        disableButton.setOnClickListener {
+            weeklyDayPicker.isEnabled = !weeklyDayPicker.isEnabled
+        }
+
+        toggleClickableButton.setOnClickListener {
+            weeklyDayPicker.isClickable = !weeklyDayPicker.isClickable
+        }
     }
 
     private fun toast(text: String) {

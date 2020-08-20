@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         app:locale="id"
         app:dayFormat="shorthand"
-        tools:days="friday|monday"/>
+        tools:days="friday|monday"
+        app:radius="32dp"/>
 
     <Button
         android:id="@+id/changeDaysButton"
@@ -58,5 +59,23 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_gravity="center_horizontal"
         android:text="Add Sunday to Active Days"/>
+
+    <Button
+        android:id="@+id/disableButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_gravity="center_horizontal"
+        android:text="Disable DayPicker"/>
+
+    <Button
+        android:id="@+id/toggleClickableButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_gravity="center_horizontal"
+        android:text="Toggle Clickable"/>
 
 </LinearLayout>

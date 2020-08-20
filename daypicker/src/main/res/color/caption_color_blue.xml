@@ -3,6 +3,6 @@
     <item android:state_checked="true"
         android:color="@android:color/holo_blue_dark" />
     <item android:state_enabled="false"
-        android:color="?android:attr/textColorPrimaryInverse" />
+        android:color="?android:attr/textColorPrimary" />
     <item android:color="?android:attr/textColorPrimary"/>
 </selector>

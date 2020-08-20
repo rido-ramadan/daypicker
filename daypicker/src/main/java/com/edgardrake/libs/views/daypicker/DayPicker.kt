@@ -9,6 +9,7 @@ import android.widget.Checkable
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
+import com.edgardrake.flameseeker.core.utils.dp
 import com.edgardrake.libs.views.daypicker.data.Day
 import com.edgardrake.libs.views.daypicker.data.Day.Format
 import kotlinx.android.synthetic.main.day_picker_view.view.*
@@ -43,6 +44,8 @@ open class DayPicker @JvmOverloads constructor(
                 getColorStateList(R.styleable.DayPicker_captionColor)?.let { color ->
                     dayPickerCaption.setTextColor(color)
                 }
+
+                radius = getDimensionPixelSize(R.styleable.DayPicker_radius, 32.dp)
 
                 // Day must be last to handle, since it is affected by properties above
                 day = Day.values()[getInt(R.styleable.DayPicker_day, 0)]
@@ -99,6 +102,11 @@ open class DayPicker @JvmOverloads constructor(
         dayPickerCaption.isEnabled = enabled
     }
 
+    override fun setClickable(clickable: Boolean) {
+        super.setClickable(clickable)
+        dayPickerButton.isClickable = clickable
+    }
+
     @DrawableRes
     var iconBackground: Int = R.drawable.selector_circle_blue
         set(value) = dayPickerButton.setBackgroundResource(value)
@@ -110,4 +118,13 @@ open class DayPicker @JvmOverloads constructor(
     fun setCaptionColor(@ColorInt color: Int) {
         dayPickerButton.setTextColor(color)
     }
+
+    var radius: Int
+        set(value) {
+            field = value
+            dayPickerButton.apply {
+                width = value
+                height = value
+            }
+        }
 }

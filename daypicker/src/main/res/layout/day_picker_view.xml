@@ -4,14 +4,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:padding="2dp">
+    android:orientation="vertical">
 
     <CheckedTextView
         android:id="@+id/dayPickerButton"
         style="@style/CircleButton.Blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minWidth="32dp"
+        android:minHeight="32dp"
         android:padding="0dp"
         android:textAlignment="gravity"
         tools:text="S"

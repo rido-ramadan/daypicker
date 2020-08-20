@@ -3,6 +3,8 @@ package com.edgardrake.libs.views.daypicker
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
+import androidx.core.view.setPadding
+import com.edgardrake.flameseeker.core.utils.dp
 import com.edgardrake.libs.views.daypicker.data.Day
 import java.util.Locale
 
@@ -19,9 +21,12 @@ class WeeklyDayPicker @JvmOverloads constructor(
     private var format: Day.Format = Day.Format.SHORTHAND
     private var renderMode: Mode = Mode.SHOW_ALL
     private var activeDaysFlag: Int = 0
+    private var radius: Int = 32.dp
+    private var clickable: Boolean = true
 
     init {
         orientation = HORIZONTAL
+        setPadding(2.dp, 2.dp, 2.dp, 2.dp)
 
         // Read attributes
         context.theme.obtainStyledAttributes(attrs, R.styleable.WeeklyDayPicker, 0, 0).apply {
@@ -34,6 +39,8 @@ class WeeklyDayPicker @JvmOverloads constructor(
                 // Date Formatting
                 format = if (getInt(R.styleable.WeeklyDayPicker_dayFormat, 0) == 0)
                     Day.Format.SHORTHAND else Day.Format.FULL
+
+                radius = getDimensionPixelSize(R.styleable.WeeklyDayPicker_radius, 32.dp)
 
                 // Active (selected) days
                 activeDaysFlag = getInt(R.styleable.WeeklyDayPicker_days, NONE)
@@ -49,8 +56,11 @@ class WeeklyDayPicker @JvmOverloads constructor(
 
         dayPickers = Day.values().map { day ->
             DayPicker(context).also {
+                it.isClickable = clickable
+                it.isEnabled = isEnabled
                 it.format = format
                 it.locale = locale
+                it.radius = radius
                 it.day = day
                 it.onToggleListener = { checked ->
                     onDayToggled?.invoke(day.getName(locale, Day.Format.FULL), checked)
@@ -127,7 +137,10 @@ class WeeklyDayPicker @JvmOverloads constructor(
      */
     fun addSelectedDay(day: Day) {
         if (day !in selectedDays) {
-            dayPickers[day.index].isChecked = true
+            dayPickers[day.index].apply {
+                isChecked = true
+                visibility = VISIBLE
+            }
         }
     }
 
@@ -136,7 +149,10 @@ class WeeklyDayPicker @JvmOverloads constructor(
      */
     fun removeSelectedDay(day: Day) {
         if (day in selectedDays) {
-            dayPickers[day.index].isChecked = false
+            dayPickers[day.index].apply {
+                isChecked = false
+                visibility = if (mode == Mode.FILTERED) GONE else VISIBLE
+            }
         }
     }
 
@@ -171,10 +187,30 @@ class WeeklyDayPicker @JvmOverloads constructor(
      */
     private fun render(mode: Mode) {
         if (mode == Mode.FILTERED) {
-            dayPickers.forEach { it.visibility = if (it.activeDay != null) VISIBLE else GONE }
+            dayPickers.forEach {
+                it.visibility = if (it.activeDay != null) VISIBLE else GONE
+                it.isEnabled = isEnabled
+                it.isClickable = isClickable
+            }
         } else {
-            dayPickers.forEach { it.visibility = VISIBLE }
+            dayPickers.forEach {
+                it.visibility = VISIBLE
+                it.isEnabled = isEnabled
+                it.isClickable = isClickable
+            }
         }
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        dayPickers.forEach { it.isEnabled = enabled }
+    }
+
+    override fun isClickable() = clickable
+
+    override fun setClickable(clickable: Boolean) {
+        this.clickable = clickable
+        dayPickers.forEach { it.isClickable = clickable }
     }
 
     companion object {
