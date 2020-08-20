@@ -22,13 +22,21 @@ enum class Day constructor(val index: Int) {
     }
 
     @JvmOverloads
-    fun getName(locale: Locale = Locale.getDefault(), format: String = "EEE"): String {
+    fun getName(
+        locale: Locale = Locale.getDefault(),
+        format: Format = Format.SHORTHAND
+    ): String {
         val date = calendar.apply { set(YEAR_2018, JANUARY, 7 + index) }.time
-        return SimpleDateFormat(format, locale).format(date)
+        return SimpleDateFormat(format.toString(), locale).format(date)
     }
 
     companion object {
         private const val YEAR_2018 = 2018
         private const val JANUARY = 0
+    }
+
+    enum class Format {
+        SHORTHAND { override fun toString() = "EEE" },
+        FULL { override fun toString() = "EEEE" }
     }
 }

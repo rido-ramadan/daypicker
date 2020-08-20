@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="LocaleView">
-        <attr name="locale" format="string"/>
+        <attr name="locale" format="string" />
     </declare-styleable>
-    <declare-styleable name="DayPicker" parent="LocaleView">
-        <attr name="locale"/>
-        <attr name="checked" format="boolean"/>
-        <attr name="day" format="enum">
-            <enum name="sunday" value="0"/>
-            <enum name="monday" value="1"/>
-            <enum name="tuesday" value="2"/>
-            <enum name="wednesday" value="3"/>
-            <enum name="thursday" value="4"/>
-            <enum name="friday" value="5"/>
-            <enum name="saturday" value="6"/>
+    <declare-styleable name="BaseDayPicker" parent="LocaleView">
+        <attr name="dayFormat" format="enum">
+            <enum name="shorthand" value="0" />
+            <enum name="full" value="1" />
         </attr>
-        <attr name="iconSize" format="dimension"/>
-        <attr name="captionSize" format="dimension"/>
-        <attr name="radius" format="dimension"/>
+        <attr name="iconBackground" format="reference"/>
+        <attr name="captionColor" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="DayPicker" parent="BaseDayPicker">
+        <attr name="locale" />
+        <attr name="checked" format="boolean" />
+        <attr name="day" format="enum">
+            <enum name="sunday" value="0" />
+            <enum name="monday" value="1" />
+            <enum name="tuesday" value="2" />
+            <enum name="wednesday" value="3" />
+            <enum name="thursday" value="4" />
+            <enum name="friday" value="5" />
+            <enum name="saturday" value="6" />
+        </attr>
+        <attr name="dayFormat" />
+        <attr name="iconSize" format="dimension" />
+        <attr name="captionSize" format="dimension" />
+        <attr name="radius" format="dimension" />
+        <attr name="iconBackground"/>
+        <attr name="captionColor"/>
     </declare-styleable>
     <declare-styleable name="WeeklyDayPicker" parent="LocaleView">
-        <attr name="locale"/>
+        <attr name="locale" />
     </declare-styleable>
 </resources>

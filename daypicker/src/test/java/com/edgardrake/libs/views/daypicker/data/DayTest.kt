@@ -20,21 +20,21 @@ class DayTest {
     @Test
     fun `Day_getName should return name in specified locale and formatting`() {
         val localeID = Locale("id")
-        assertEquals(Day.SUNDAY.getName(localeID, "EEEE"), "Minggu")
-        assertEquals(Day.FRIDAY.getName(format = "EEEE"), "Friday")
+        assertEquals(Day.SUNDAY.getName(localeID, Day.Format.FULL), "Minggu")
+        assertEquals(Day.FRIDAY.getName(format = Day.Format.FULL), "Friday")
     }
 
     @Test
     fun `locale ID and long format should return Indonesian name of the day`() {
         val localeID = Locale("id")
-        val longName = "EEEE"
-        assertEquals(Day.SUNDAY.getName(localeID, longName), "Minggu")
-        assertEquals(Day.MONDAY.getName(localeID, longName), "Senin")
-        assertEquals(Day.TUESDAY.getName(localeID, longName), "Selasa")
-        assertEquals(Day.WEDNESDAY.getName(localeID, longName), "Rabu")
-        assertEquals(Day.THURSDAY.getName(localeID, longName), "Kamis")
-        assertEquals(Day.FRIDAY.getName(localeID, longName), "Jumat")
-        assertEquals(Day.SATURDAY.getName(localeID, longName), "Sabtu")
+        val full = Day.Format.FULL
+        assertEquals(Day.SUNDAY.getName(localeID, full), "Minggu")
+        assertEquals(Day.MONDAY.getName(localeID, full), "Senin")
+        assertEquals(Day.TUESDAY.getName(localeID, full), "Selasa")
+        assertEquals(Day.WEDNESDAY.getName(localeID, full), "Rabu")
+        assertEquals(Day.THURSDAY.getName(localeID, full), "Kamis")
+        assertEquals(Day.FRIDAY.getName(localeID, full), "Jumat")
+        assertEquals(Day.SATURDAY.getName(localeID, full), "Sabtu")
     }
 
     @Test
