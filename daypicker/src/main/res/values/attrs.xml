@@ -3,6 +3,7 @@
     <declare-styleable name="LocaleView">
         <attr name="locale" format="string" />
     </declare-styleable>
+
     <declare-styleable name="BaseDayPicker" parent="LocaleView">
         <attr name="dayFormat" format="enum">
             <enum name="shorthand" value="0" />
@@ -10,7 +11,9 @@
         </attr>
         <attr name="iconBackground" format="reference"/>
         <attr name="captionColor" format="color"/>
+        <attr name="radius" format="dimension" />
     </declare-styleable>
+
     <declare-styleable name="DayPicker" parent="BaseDayPicker">
         <attr name="locale" />
         <attr name="checked" format="boolean" />
@@ -26,11 +29,29 @@
         <attr name="dayFormat" />
         <attr name="iconSize" format="dimension" />
         <attr name="captionSize" format="dimension" />
-        <attr name="radius" format="dimension" />
+        <attr name="radius" />
         <attr name="iconBackground"/>
         <attr name="captionColor"/>
     </declare-styleable>
-    <declare-styleable name="WeeklyDayPicker" parent="LocaleView">
+
+    <declare-styleable name="WeeklyDayPicker" parent="BaseDayPicker">
         <attr name="locale" />
+        <attr name="dayFormat" />
+        <attr name="days">
+            <flag name="none"       value="0x0000000"/>
+            <flag name="sunday"     value="0x1000000"/>
+            <flag name="monday"     value="0x0100000"/>
+            <flag name="tuesday"    value="0x0010000"/>
+            <flag name="wednesday"  value="0x0001000"/>
+            <flag name="thursday"   value="0x0000100"/>
+            <flag name="friday"     value="0x0000010"/>
+            <flag name="saturday"   value="0x0000001"/>
+            <flag name="all"        value="0x1111111"/>
+        </attr>
+        <attr name="mode" format="enum">
+            <enum name="showAll" value="0"/>
+            <enum name="filtered" value="1"/>
+        </attr>
+        <attr name="radius" />
     </declare-styleable>
 </resources>
