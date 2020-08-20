@@ -2,6 +2,7 @@ package com.edgardrake.libs.views.daypicker
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.Checkable
@@ -22,8 +23,8 @@ open class DayPicker @JvmOverloads constructor(
 ) : LinearLayout(context, attrs), Checkable {
 
     private var check: Boolean = false
-    private var locale: Locale = Locale.getDefault()
-    private var format: Format = Format.SHORTHAND
+    var locale: Locale = Locale.getDefault()
+    var format: Format = Format.SHORTHAND
 
     init {
         LayoutInflater.from(context).inflate(R.layout.day_picker_view, this)
@@ -49,10 +50,7 @@ open class DayPicker @JvmOverloads constructor(
                 recycle()
             }
         }
-    }
 
-    override fun onFinishInflate() {
-        super.onFinishInflate()
         dayPickerButton.setOnClickListener { toggle() }
     }
 
@@ -78,8 +76,14 @@ open class DayPicker @JvmOverloads constructor(
 
     override fun setChecked(checked: Boolean) {
         check = checked
-        dayPickerButton.isChecked = checked
-        dayPickerCaption.isChecked = checked
+        dayPickerButton.apply {
+            isChecked = checked
+            setTypeface(null, if (isChecked) Typeface.BOLD else Typeface.NORMAL)
+        }
+        dayPickerCaption.apply {
+            isChecked = checked
+            setTypeface(null, if (isChecked) Typeface.BOLD else Typeface.NORMAL)
+        }
     }
 
     override fun isChecked() = check
