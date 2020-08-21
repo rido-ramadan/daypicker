@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.widget.LinearLayout
 import androidx.core.view.setPadding
 import com.edgardrake.flameseeker.core.utils.dp
+import com.edgardrake.flameseeker.core.utils.visible
 import com.edgardrake.libs.views.daypicker.data.Day
 import java.util.Locale
 
@@ -145,7 +146,7 @@ class WeeklyDayPicker @JvmOverloads constructor(
         if (day !in selectedDays) {
             dayPickers[day.index].apply {
                 isChecked = true
-                visibility = VISIBLE
+                visible = true
             }
         }
     }
@@ -157,7 +158,7 @@ class WeeklyDayPicker @JvmOverloads constructor(
         if (day in selectedDays) {
             dayPickers[day.index].apply {
                 isChecked = false
-                visibility = if (mode == Mode.FILTERED) GONE else VISIBLE
+                visible = mode != Mode.FILTERED
             }
         }
     }
@@ -194,13 +195,13 @@ class WeeklyDayPicker @JvmOverloads constructor(
     private fun render(mode: Mode) {
         if (mode == Mode.FILTERED) {
             dayPickers.forEach {
-                it.visibility = if (it.activeDay != null) VISIBLE else GONE
+                it.visible = it.activeDay != null
                 it.isEnabled = isEnabled
                 it.isClickable = isClickable
             }
         } else {
             dayPickers.forEach {
-                it.visibility = VISIBLE
+                it.visible = true
                 it.isEnabled = isEnabled
                 it.isClickable = isClickable
             }

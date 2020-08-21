@@ -15,7 +15,7 @@ buildscript {
 
         gson = '2.8.6'
 
-        flameseekerCore = '0.1.0'
+        flameseekerCore = '0.1.5'
 
         junit = '4.12'
         xJunit = '1.1.1'
