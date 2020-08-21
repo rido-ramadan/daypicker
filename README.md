@@ -4,6 +4,7 @@ Simple Android View for picking multiple day in a week
 ## Features
 
 *   Easily customizable
+
     ```xml
     <com.edgardrake.libs.views.daypicker.WeeklyDayPicker
         android:id="@+id/weeklyDayPicker"
@@ -21,7 +22,9 @@ Simple Android View for picking multiple day in a week
     ```
 
 *   Support Localization
+
     ![i18n](./docs/assets/i18n.png)
 
 *   Demo
-    <br/><img src="./docs/assets/demo.gif" alt="demo" width="300">
+    
+    <img src="./docs/assets/demo.gif" alt="demo" width="300">
