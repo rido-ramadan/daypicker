@@ -11,10 +11,15 @@
         android:id="@+id/weeklyDayPicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
         app:locale="id"
         app:dayFormat="shorthand"
-        tools:days="all"
-        app:radius="32dp"/>
+        app:days="none"
+        app:radius="32dp"
+        app:mode="showAll"
+        app:iconBackground="@drawable/selector_circle_blue"
+        app:captionColor="@color/caption_color_blue"/>
 
     <Button
         android:id="@+id/changeDaysButton"

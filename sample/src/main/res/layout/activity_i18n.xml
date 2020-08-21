@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    tools:context=".I18nActivity">
+
+    <com.edgardrake.libs.views.daypicker.WeeklyDayPicker
+        android:id="@+id/usWeekPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:locale="us"
+        app:dayFormat="full"
+        app:days="saturday|sunday"/>
+
+    <com.edgardrake.libs.views.daypicker.WeeklyDayPicker
+        android:id="@+id/idWeekPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:locale="id"
+        app:dayFormat="full"
+        app:days="monday|thursday"/>
+
+    <com.edgardrake.libs.views.daypicker.WeeklyDayPicker
+        android:id="@+id/deWeekPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:locale="de"
+        app:dayFormat="full"
+        app:days="monday|wednesday"/>
+
+    <com.edgardrake.libs.views.daypicker.WeeklyDayPicker
+        android:id="@+id/nlWeekPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:locale="nl"
+        app:dayFormat="full"
+        app:days="all"/>
+
+</LinearLayout>

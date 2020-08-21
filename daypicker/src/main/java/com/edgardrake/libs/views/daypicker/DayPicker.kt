@@ -127,11 +127,11 @@ open class DayPicker @JvmOverloads constructor(
         set(value) = dayPickerButton.setBackgroundResource(value)
 
     fun setCaptionColor(color: ColorStateList) {
-        dayPickerButton.setTextColor(color)
+        dayPickerCaption.setTextColor(color)
     }
 
     fun setCaptionColor(@ColorInt color: Int) {
-        dayPickerButton.setTextColor(color)
+        dayPickerCaption.setTextColor(color)
     }
 
     var radius: Int

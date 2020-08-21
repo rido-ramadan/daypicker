@@ -53,5 +53,7 @@
             <enum name="filtered" value="1"/>
         </attr>
         <attr name="radius" />
+        <attr name="iconBackground"/>
+        <attr name="captionColor"/>
     </declare-styleable>
 </resources>

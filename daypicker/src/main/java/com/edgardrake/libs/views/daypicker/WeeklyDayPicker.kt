@@ -1,12 +1,16 @@
 package com.edgardrake.libs.views.daypicker
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.widget.LinearLayout
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
 import androidx.core.view.setPadding
 import com.edgardrake.flameseeker.core.utils.dp
 import com.edgardrake.flameseeker.core.utils.visible
 import com.edgardrake.libs.views.daypicker.data.Day
+import kotlinx.android.synthetic.main.day_picker_view.view.*
 import java.util.Locale
 
 /**
@@ -25,6 +29,10 @@ class WeeklyDayPicker @JvmOverloads constructor(
     private var radius: Int = 32.dp
     private var clickable: Boolean = true
 
+    @DrawableRes
+    private var iconBackground: Int
+    private var captionTextColor: ColorStateList?
+
     init {
         orientation = HORIZONTAL
         setPadding(2.dp, 2.dp, 2.dp, 2.dp)
@@ -41,13 +49,18 @@ class WeeklyDayPicker @JvmOverloads constructor(
                 format = if (getInt(R.styleable.WeeklyDayPicker_dayFormat, 0) == 0)
                     Day.Format.SHORTHAND else Day.Format.FULL
 
+                // DayPicker related rendering
                 radius = getDimensionPixelSize(R.styleable.WeeklyDayPicker_radius, 32.dp)
+                iconBackground = getResourceId(R.styleable.WeeklyDayPicker_iconBackground,
+                    R.drawable.selector_circle_blue)
+                captionTextColor = getColorStateList(R.styleable.DayPicker_captionColor)
 
                 // Active (selected) days
                 activeDaysFlag = getInt(R.styleable.WeeklyDayPicker_days, NONE)
 
                 // Render Mode
                 renderMode = Mode.values()[getInt(R.styleable.WeeklyDayPicker_mode, 0)]
+
             } catch (e: Exception) {
                 throw e
             } finally {
@@ -59,6 +72,8 @@ class WeeklyDayPicker @JvmOverloads constructor(
             DayPicker(context).also {
                 it.isClickable = clickable
                 it.isEnabled = isEnabled
+                it.iconBackground = iconBackground
+                captionTextColor?.let { color -> it.setCaptionColor(color) }
                 it.format = format
                 it.locale = locale
                 it.radius = radius
