@@ -7,7 +7,7 @@ Project level `build.gradle`
 allprojects {
     repositories {
         ...
-        maven { url 'https://jitpack.io' } // Add this line
+        maven { url 'https://jitpack.io' } // << Add this line
     }
 }
 ```
@@ -15,7 +15,9 @@ allprojects {
 Module level `build.gradle`
 ```gradle
 dependencies {
-    implementation "com.github.rido-ramadan:daypicker:0.1.0"
+    ...
+    implementation "com.github.rido-ramadan:daypicker:0.1.1" // << Add this line
+    ...
 }
 ```
 

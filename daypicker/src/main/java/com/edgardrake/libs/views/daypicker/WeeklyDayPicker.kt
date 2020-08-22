@@ -4,13 +4,10 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.util.AttributeSet
 import android.widget.LinearLayout
-import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import androidx.core.view.setPadding
 import com.edgardrake.flameseeker.core.utils.dp
 import com.edgardrake.flameseeker.core.utils.visible
 import com.edgardrake.libs.views.daypicker.data.Day
-import kotlinx.android.synthetic.main.day_picker_view.view.*
 import java.util.Locale
 
 /**

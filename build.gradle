@@ -8,14 +8,14 @@ buildscript {
         minSDK = 19
         targetSDK = 29
         buildNumber = 1
-        versionName = '0.1.0'
+        versionName = '0.1.1'
 
         androidCore = '1.3.1'
         appCompat = '1.2.0'
 
         gson = '2.8.6'
 
-        flameseekerCore = '0.1.5'
+        flameseekerCore = '0.2.1'
 
         junit = '4.12'
         xJunit = '1.1.1'

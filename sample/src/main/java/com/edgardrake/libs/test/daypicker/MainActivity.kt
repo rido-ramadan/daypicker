@@ -1,8 +1,9 @@
 package com.edgardrake.libs.test.daypicker
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.edgardrake.flameseeker.core.utils.showDebug
+import com.edgardrake.flameseeker.core.utils.toast
 import com.edgardrake.libs.views.daypicker.WeeklyDayPicker.Mode
 import com.edgardrake.libs.views.daypicker.data.Day
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,7 +28,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         selectedDaysButton.setOnClickListener {
-            toast(weeklyDayPicker.selectedDaysFullName.joinToString(", ") { it })
+            showDebug(this, "Selected Days", 10, 90,
+                weeklyDayPicker.selectedDaysFullName.map { "●" to it }
+            )
         }
 
         modeButton.setOnClickListener {
@@ -46,9 +49,5 @@ class MainActivity : AppCompatActivity() {
         toggleClickableButton.setOnClickListener {
             weeklyDayPicker.isClickable = !weeklyDayPicker.isClickable
         }
-    }
-
-    private fun toast(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
 }
